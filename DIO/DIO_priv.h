@@ -30,6 +30,8 @@
 #define DIO_PIN6   6
 #define DIO_PIN7   7
 
+#define DIO_MASK_BIT  1
+
 #define DDRA   *((u8*)0x3A)
 #define PORTA  *((u8*)0x3B)
 #define PINA   *((volatile u8*)0x39)

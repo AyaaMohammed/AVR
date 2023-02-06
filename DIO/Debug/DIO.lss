@@ -633,7 +633,7 @@ ES_t DIO_enuSetPinDirection(u8 Copy_u8PortID , u8 Copy_u8Value ,u8 Copy_u8PinID)
  3d8:	7c c0       	rjmp	.+248    	; 0x4d2 <DIO_enuSetPinDirection+0x16c>
  3da:	a3 c0       	rjmp	.+326    	; 0x522 <DIO_enuSetPinDirection+0x1bc>
 		case DIO_PORTA:
-			DDRA &=~(1<<Copy_u8PinID); //clear
+			DDRA &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
  3dc:	aa e3       	ldi	r26, 0x3A	; 58
  3de:	b0 e0       	ldi	r27, 0x00	; 0
  3e0:	ea e3       	ldi	r30, 0x3A	; 58
@@ -678,7 +678,7 @@ ES_t DIO_enuSetPinDirection(u8 Copy_u8PortID , u8 Copy_u8Value ,u8 Copy_u8PinID)
  42c:	7a c0       	rjmp	.+244    	; 0x522 <DIO_enuSetPinDirection+0x1bc>
 		break;
 		case DIO_PORTB:
-			DDRB &=~(1<<Copy_u8PinID); //clear
+			DDRB &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
  42e:	a7 e3       	ldi	r26, 0x37	; 55
  430:	b0 e0       	ldi	r27, 0x00	; 0
  432:	e7 e3       	ldi	r30, 0x37	; 55
@@ -723,7 +723,7 @@ ES_t DIO_enuSetPinDirection(u8 Copy_u8PortID , u8 Copy_u8Value ,u8 Copy_u8PinID)
  47e:	51 c0       	rjmp	.+162    	; 0x522 <DIO_enuSetPinDirection+0x1bc>
 		break;
 		case DIO_PORTC:
-			DDRC &=~(1<<Copy_u8PinID); //clear
+			DDRC &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
  480:	a4 e3       	ldi	r26, 0x34	; 52
  482:	b0 e0       	ldi	r27, 0x00	; 0
  484:	e4 e3       	ldi	r30, 0x34	; 52
@@ -768,7 +768,7 @@ ES_t DIO_enuSetPinDirection(u8 Copy_u8PortID , u8 Copy_u8Value ,u8 Copy_u8PinID)
  4d0:	28 c0       	rjmp	.+80     	; 0x522 <DIO_enuSetPinDirection+0x1bc>
 		break;
 		case DIO_PORTD:
-			DDRD &=~(1<<Copy_u8PinID); //clear
+			DDRD &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
  4d2:	a1 e3       	ldi	r26, 0x31	; 49
  4d4:	b0 e0       	ldi	r27, 0x00	; 0
  4d6:	e1 e3       	ldi	r30, 0x31	; 49
@@ -899,7 +899,7 @@ ES_t DIO_enuSetPinValue(u8 Copy_u8PortID ,u8 Copy_u8PinID ,u8 Copy_u8Value){
  5b0:	7c c0       	rjmp	.+248    	; 0x6aa <DIO_enuSetPinValue+0x16c>
  5b2:	a3 c0       	rjmp	.+326    	; 0x6fa <DIO_enuSetPinValue+0x1bc>
 			case DIO_PORTA:
-				PORTA &=~(1<<Copy_u8PinID); //clear
+				PORTA &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
  5b4:	ab e3       	ldi	r26, 0x3B	; 59
  5b6:	b0 e0       	ldi	r27, 0x00	; 0
  5b8:	eb e3       	ldi	r30, 0x3B	; 59
@@ -944,7 +944,7 @@ ES_t DIO_enuSetPinValue(u8 Copy_u8PortID ,u8 Copy_u8PinID ,u8 Copy_u8Value){
  604:	7a c0       	rjmp	.+244    	; 0x6fa <DIO_enuSetPinValue+0x1bc>
 			break;
 			case DIO_PORTB:
-				PORTB &=~(1<<Copy_u8PinID); //clear
+				PORTB &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
  606:	a8 e3       	ldi	r26, 0x38	; 56
  608:	b0 e0       	ldi	r27, 0x00	; 0
  60a:	e8 e3       	ldi	r30, 0x38	; 56
@@ -989,7 +989,7 @@ ES_t DIO_enuSetPinValue(u8 Copy_u8PortID ,u8 Copy_u8PinID ,u8 Copy_u8Value){
  656:	51 c0       	rjmp	.+162    	; 0x6fa <DIO_enuSetPinValue+0x1bc>
 			break;
 			case DIO_PORTC:
-				PORTC &=~(1<<Copy_u8PinID); //clear
+				PORTC &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
  658:	a5 e3       	ldi	r26, 0x35	; 53
  65a:	b0 e0       	ldi	r27, 0x00	; 0
  65c:	e5 e3       	ldi	r30, 0x35	; 53
@@ -1034,7 +1034,7 @@ ES_t DIO_enuSetPinValue(u8 Copy_u8PortID ,u8 Copy_u8PinID ,u8 Copy_u8Value){
  6a8:	28 c0       	rjmp	.+80     	; 0x6fa <DIO_enuSetPinValue+0x1bc>
 			break;
 			case DIO_PORTD:
-				PORTD &=~(1<<Copy_u8PinID); //clear
+				PORTD &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
  6aa:	a2 e3       	ldi	r26, 0x32	; 50
  6ac:	b0 e0       	ldi	r27, 0x00	; 0
  6ae:	e2 e3       	ldi	r30, 0x32	; 50
@@ -1157,7 +1157,7 @@ ES_t DIO_enuTogPinValue(u8 Copy_u8PortID ,u8 Copy_u8PinID){
  776:	e9 f1       	breq	.+122    	; 0x7f2 <DIO_enuTogPinValue+0xdc>
  778:	4f c0       	rjmp	.+158    	; 0x818 <DIO_enuTogPinValue+0x102>
 			case DIO_PORTA:
-				PORTA ^=(1<<Copy_u8PinID);
+				PORTA ^=(DIO_MASK_BIT <<Copy_u8PinID);
  77a:	ab e3       	ldi	r26, 0x3B	; 59
  77c:	b0 e0       	ldi	r27, 0x00	; 0
  77e:	eb e3       	ldi	r30, 0x3B	; 59
@@ -1180,7 +1180,7 @@ ES_t DIO_enuTogPinValue(u8 Copy_u8PortID ,u8 Copy_u8PinID){
  7a0:	3b c0       	rjmp	.+118    	; 0x818 <DIO_enuTogPinValue+0x102>
 			break;
 			case DIO_PORTB:
-				PORTB ^=(1<<Copy_u8PinID);
+				PORTB ^=(DIO_MASK_BIT <<Copy_u8PinID);
  7a2:	a8 e3       	ldi	r26, 0x38	; 56
  7a4:	b0 e0       	ldi	r27, 0x00	; 0
  7a6:	e8 e3       	ldi	r30, 0x38	; 56
@@ -1203,7 +1203,7 @@ ES_t DIO_enuTogPinValue(u8 Copy_u8PortID ,u8 Copy_u8PinID){
  7c8:	27 c0       	rjmp	.+78     	; 0x818 <DIO_enuTogPinValue+0x102>
 			break;
 			case DIO_PORTC:
-				PORTC ^=(1<<Copy_u8PinID);
+				PORTC ^=(DIO_MASK_BIT <<Copy_u8PinID);
  7ca:	a5 e3       	ldi	r26, 0x35	; 53
  7cc:	b0 e0       	ldi	r27, 0x00	; 0
  7ce:	e5 e3       	ldi	r30, 0x35	; 53
@@ -1226,7 +1226,7 @@ ES_t DIO_enuTogPinValue(u8 Copy_u8PortID ,u8 Copy_u8PinID){
  7f0:	13 c0       	rjmp	.+38     	; 0x818 <DIO_enuTogPinValue+0x102>
 			break;
 			case DIO_PORTD:
-				PORTD ^=(1<<Copy_u8PinID);
+				PORTD ^=(DIO_MASK_BIT <<Copy_u8PinID);
  7f2:	a2 e3       	ldi	r26, 0x32	; 50
  7f4:	b0 e0       	ldi	r27, 0x00	; 0
  7f6:	e2 e3       	ldi	r30, 0x32	; 50

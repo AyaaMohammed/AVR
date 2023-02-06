@@ -139,19 +139,19 @@ ES_t DIO_enuSetPinDirection(u8 Copy_u8PortID , u8 Copy_u8Value ,u8 Copy_u8PinID)
 	if((Copy_u8PortID <= DIO_PORTD) && (Copy_u8PinID <=DIO_PIN7) && (Copy_u8Value <= OUTPUT)){
 		switch(Copy_u8PortID){
 		case DIO_PORTA:
-			DDRA &=~(1<<Copy_u8PinID); //clear
+			DDRA &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
 			DDRA |=(Copy_u8Value <<Copy_u8PinID);//set
 		break;
 		case DIO_PORTB:
-			DDRB &=~(1<<Copy_u8PinID); //clear
+			DDRB &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
 			DDRB |=(Copy_u8Value <<Copy_u8PinID);//set
 		break;
 		case DIO_PORTC:
-			DDRC &=~(1<<Copy_u8PinID); //clear
+			DDRC &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
 			DDRC |=(Copy_u8Value <<Copy_u8PinID);//set
 		break;
 		case DIO_PORTD:
-			DDRD &=~(1<<Copy_u8PinID); //clear
+			DDRD &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
 			DDRD |=(Copy_u8Value <<Copy_u8PinID);//set
 		break;
 		}
@@ -167,19 +167,19 @@ ES_t DIO_enuSetPinValue(u8 Copy_u8PortID ,u8 Copy_u8PinID ,u8 Copy_u8Value){
 		if((Copy_u8PortID <= DIO_PORTD) && (Copy_u8PinID <=DIO_PIN7) && (Copy_u8Value <= OUTPUT)){
 			switch(Copy_u8PortID){
 			case DIO_PORTA:
-				PORTA &=~(1<<Copy_u8PinID); //clear
+				PORTA &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
 				PORTA |=(Copy_u8Value <<Copy_u8PinID);//set
 			break;
 			case DIO_PORTB:
-				PORTB &=~(1<<Copy_u8PinID); //clear
+				PORTB &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
 				PORTB |=(Copy_u8Value <<Copy_u8PinID);//set
 			break;
 			case DIO_PORTC:
-				PORTC &=~(1<<Copy_u8PinID); //clear
+				PORTC &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
 				PORTC |=(Copy_u8Value <<Copy_u8PinID);//set
 			break;
 			case DIO_PORTD:
-				PORTD &=~(1<<Copy_u8PinID); //clear
+				PORTD &=~(DIO_MASK_BIT <<Copy_u8PinID); //clear
 				PORTD |=(Copy_u8Value <<Copy_u8PinID);//set
 			break;
 			}
@@ -196,16 +196,16 @@ ES_t DIO_enuTogPinValue(u8 Copy_u8PortID ,u8 Copy_u8PinID){
 	if((Copy_u8PortID <= DIO_PORTD) && (Copy_u8PinID <=DIO_PIN7)){
 			switch(Copy_u8PortID){
 			case DIO_PORTA:
-				PORTA ^=(1<<Copy_u8PinID);
+				PORTA ^=(DIO_MASK_BIT <<Copy_u8PinID);
 			break;
 			case DIO_PORTB:
-				PORTB ^=(1<<Copy_u8PinID);
+				PORTB ^=(DIO_MASK_BIT <<Copy_u8PinID);
 			break;
 			case DIO_PORTC:
-				PORTC ^=(1<<Copy_u8PinID);
+				PORTC ^=(DIO_MASK_BIT <<Copy_u8PinID);
 			break;
 			case DIO_PORTD:
-				PORTD ^=(1<<Copy_u8PinID);
+				PORTD ^=(DIO_MASK_BIT <<Copy_u8PinID);
 			break;
 			}
 			Local_enuErrorState = ES_OK;
